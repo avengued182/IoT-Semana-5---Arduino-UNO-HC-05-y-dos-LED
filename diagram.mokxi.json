@@ -1,0 +1,358 @@
+{
+  "version": 1,
+  "name": "IoT Semana 5 - Arduino UNO, HC-05 y dos LED",
+  "parts": [
+    {
+      "id": "uno1",
+      "type": "uno",
+      "props": {},
+      "x": 80,
+      "y": 80,
+      "rot": 0
+    },
+    {
+      "id": "hc05",
+      "type": "hc05",
+      "props": {
+        "baud": 9600
+      },
+      "x": 880,
+      "y": 80,
+      "rot": 0
+    },
+    {
+      "id": "rTxAlto",
+      "type": "resistor",
+      "props": {
+        "value": 1000
+      },
+      "x": 1160,
+      "y": 80,
+      "rot": 0
+    },
+    {
+      "id": "rTxBajo",
+      "type": "resistor",
+      "props": {
+        "value": 2000
+      },
+      "x": 1320,
+      "y": 80,
+      "rot": 0
+    },
+    {
+      "id": "ledVerde",
+      "type": "led",
+      "props": {
+        "color": "green"
+      },
+      "x": 880,
+      "y": 320,
+      "rot": 0
+    },
+    {
+      "id": "rVerde",
+      "type": "resistor",
+      "props": {
+        "value": 220
+      },
+      "x": 1020,
+      "y": 320,
+      "rot": 0
+    },
+    {
+      "id": "ledRojo",
+      "type": "led",
+      "props": {
+        "color": "red"
+      },
+      "x": 880,
+      "y": 480,
+      "rot": 0
+    },
+    {
+      "id": "rRojo",
+      "type": "resistor",
+      "props": {
+        "value": 330
+      },
+      "x": 1020,
+      "y": 480,
+      "rot": 0
+    }
+  ],
+  "wires": [
+    {
+      "id": "w1",
+      "from": "uno1:5V",
+      "to": "hc05:VCC",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": 240,
+          "y": 600
+        },
+        {
+          "x": 940,
+          "y": 600
+        }
+      ]
+    },
+    {
+      "id": "w2",
+      "from": "uno1:GND",
+      "to": "hc05:GND",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 240,
+          "y": -40
+        },
+        {
+          "x": 840,
+          "y": -40
+        },
+        {
+          "x": 840,
+          "y": 280
+        },
+        {
+          "x": 960,
+          "y": 280
+        }
+      ]
+    },
+    {
+      "id": "w3",
+      "from": "hc05:TXD",
+      "to": "uno1:2",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 980,
+          "y": 240
+        },
+        {
+          "x": 880,
+          "y": 240
+        },
+        {
+          "x": 880,
+          "y": 40
+        },
+        {
+          "x": 500,
+          "y": 40
+        }
+      ]
+    },
+    {
+      "id": "w4",
+      "from": "uno1:3",
+      "to": "rTxAlto:1",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": 480,
+          "y": 0
+        },
+        {
+          "x": 1140,
+          "y": 0
+        },
+        {
+          "x": 1140,
+          "y": 100
+        }
+      ]
+    },
+    {
+      "id": "w5",
+      "from": "rTxAlto:2",
+      "to": "hc05:RXD",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": 1260,
+          "y": 100
+        },
+        {
+          "x": 1260,
+          "y": 240
+        },
+        {
+          "x": 1000,
+          "y": 240
+        }
+      ]
+    },
+    {
+      "id": "w6",
+      "from": "rTxAlto:2",
+      "to": "rTxBajo:1",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": 1280,
+          "y": 100
+        }
+      ]
+    },
+    {
+      "id": "w7",
+      "from": "rTxBajo:2",
+      "to": "uno1:GND",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 1420,
+          "y": 100
+        },
+        {
+          "x": 1420,
+          "y": -200
+        },
+        {
+          "x": 240,
+          "y": -200
+        }
+      ]
+    },
+    {
+      "id": "w8",
+      "from": "uno1:8",
+      "to": "rVerde:1",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 360,
+          "y": -80
+        },
+        {
+          "x": 800,
+          "y": -80
+        },
+        {
+          "x": 800,
+          "y": 340
+        }
+      ]
+    },
+    {
+      "id": "w9",
+      "from": "rVerde:2",
+      "to": "ledVerde:A",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 1120,
+          "y": 340
+        },
+        {
+          "x": 1120,
+          "y": 400
+        },
+        {
+          "x": 900,
+          "y": 400
+        }
+      ]
+    },
+    {
+      "id": "w10",
+      "from": "ledVerde:C",
+      "to": "uno1:GND",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 920,
+          "y": 440
+        },
+        {
+          "x": 760,
+          "y": 440
+        },
+        {
+          "x": 760,
+          "y": -120
+        },
+        {
+          "x": 240,
+          "y": -120
+        }
+      ]
+    },
+    {
+      "id": "w11",
+      "from": "uno1:9",
+      "to": "rRojo:1",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": 340,
+          "y": -160
+        },
+        {
+          "x": 720,
+          "y": -160
+        },
+        {
+          "x": 720,
+          "y": 500
+        }
+      ]
+    },
+    {
+      "id": "w12",
+      "from": "rRojo:2",
+      "to": "ledRojo:A",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": 1160,
+          "y": 500
+        },
+        {
+          "x": 1160,
+          "y": 560
+        },
+        {
+          "x": 900,
+          "y": 560
+        }
+      ]
+    },
+    {
+      "id": "w13",
+      "from": "ledRojo:C",
+      "to": "uno1:GND",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 920,
+          "y": 640
+        },
+        {
+          "x": 680,
+          "y": 640
+        },
+        {
+          "x": 680,
+          "y": 40
+        },
+        {
+          "x": 240,
+          "y": 40
+        }
+      ]
+    }
+  ],
+  "projects": {
+    "uno1": {
+      "files": {
+        "sketch.ino": "/*\n  Entrega 2 - Internet de las Cosas\n  Control de dos LED mediante HC-05 (Bluetooth simulado en Mokxi)\n\n  Comandos recibidos desde el telefono virtual:\n    B: encender LED verde y apagar rojo\n    R: encender LED rojo y apagar verde\n    A: encender ambos LED\n    0: apagar ambos LED\n    Otros: comando no valido\n\n  Conexion serial: HC-05 TXD -> Arduino D2 (RX)\n                    Arduino D3 (TX) -> divisor -> HC-05 RXD\n  Los LED se conectan a D8 (verde) y D9 (rojo).\n*/\n#include <SoftwareSerial.h>\n\nconst byte PIN_BLUETOOTH_RX = 2;\nconst byte PIN_BLUETOOTH_TX = 3;\nconst byte LED_VERDE = 8;\nconst byte LED_ROJO = 9;\n\nSoftwareSerial bluetooth(PIN_BLUETOOTH_RX, PIN_BLUETOOTH_TX);\n\nvoid responder(const char* mensaje) {\n  Serial.println(mensaje);\n  bluetooth.println(mensaje);\n}\n\nvoid ejecutarComando(char comando) {\n  switch (comando) {\n    case 'B':\n      digitalWrite(LED_VERDE, HIGH);\n      digitalWrite(LED_ROJO, LOW);\n      responder(\"OK: LED verde encendido, rojo apagado\");\n      break;\n    case 'R':\n      digitalWrite(LED_VERDE, LOW);\n      digitalWrite(LED_ROJO, HIGH);\n      responder(\"OK: LED rojo encendido, verde apagado\");\n      break;\n    case 'A':\n      digitalWrite(LED_VERDE, HIGH);\n      digitalWrite(LED_ROJO, HIGH);\n      responder(\"OK: ambos LED encendidos\");\n      break;\n    case '0':\n      digitalWrite(LED_VERDE, LOW);\n      digitalWrite(LED_ROJO, LOW);\n      responder(\"OK: ambos LED apagados\");\n      break;\n    default:\n      responder(\"ERROR: comando no valido. Usa B, R, A o 0\");\n      break;\n  }\n}\n\nvoid setup() {\n  pinMode(LED_VERDE, OUTPUT);\n  pinMode(LED_ROJO, OUTPUT);\n  digitalWrite(LED_VERDE, LOW);\n  digitalWrite(LED_ROJO, LOW);\n\n  Serial.begin(9600);       // Monitor serial de Arduino\n  bluetooth.begin(9600);   // HC-05 en modo de datos\n  responder(\"Sistema listo. Comandos: B, R, A, 0\");\n}\n\nvoid loop() {\n  if (bluetooth.available() > 0) {\n    char comando = bluetooth.read();\n    // Ignorar los terminadores habituales de un terminal.\n    if (comando != '\\n' && comando != '\\r') {\n      ejecutarComando(comando);\n    }\n  }\n}\n"
+      },
+      "main": "sketch.ino"
+    }
+  }
+}
